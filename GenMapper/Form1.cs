@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GenMapper
@@ -15,6 +9,8 @@ namespace GenMapper
         DebInfo debf = new DebInfo();
         GenMap gm = new GenMap();
         Size maxsize;
+
+        Bitmap bm;
 
         Point[] xy_block = { new Point(1, 1), new Point(1, 1) };
         Size[] blocks = { new Size(10, 10), new Size(50, 50) };
@@ -27,29 +23,55 @@ namespace GenMapper
 
         private void button_open_Click(object sender, EventArgs e)
         {
-
+            //Coming soon
         }
 
         private void button_save_Click(object sender, EventArgs e)
         {
+            SaveFileDialog SFD = new SaveFileDialog();
+            SFD.Filter = "JPEG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|BMP files (*.bmp)|*.bmp";
 
+            if(SFD.ShowDialog() == DialogResult.OK)
+            {
+                switch (SFD.FilterIndex)
+                {
+                    case 1:
+                        bm.Save(SFD.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
+                    case 2:
+                        bm.Save(SFD.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                        break;
+                    case 3:
+                        bm.Save(SFD.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         private void MapBox_Click(object sender, EventArgs e)
         {
+            //MapBox.Image = bm;
+            //MapBox.Refresh();
+
             MapBox.Refresh();
+            MapBox.Image = bm;
         }
 
         private void MapBox_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
+            bm = new Bitmap(MapBox.Width, MapBox.Height);
             maxsize = new Size(MapBox.Width, MapBox.Height);
 
+            Graphics g = Graphics.FromImage(bm);
             gm.ShowWeb(g, Color.Green, blocks[0], maxsize);
             gm.ShowWeb(g, Color.Red, blocks[1], maxsize);
 
             gm.Block(g, Color.Green, blocks[1], xy_block[1]);
             gm.Block(g, Color.Red, blocks[0], xy_block[0]);
+
+            //MapBox.Image = bm;
         }
 
         private void MapBox_MouseMove(object sender, MouseEventArgs e)
