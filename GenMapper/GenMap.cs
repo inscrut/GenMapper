@@ -11,11 +11,11 @@ namespace GenMapper
     {
         public void World(Graphics g, Point f, Point s)
         {
-
+            //
         }
         private void ocean(Graphics g, Point f, Point s)
         {
-
+            //
         }
         public void Block(Graphics g, Color color, Size sz, Point xy)
         {
