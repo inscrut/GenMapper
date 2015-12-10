@@ -19,5 +19,14 @@ namespace GenMapper
         {
             InitializeComponent();
         }
+
+        public void showCoords(Point[] pt)
+        {
+            textBox_cubeid.Text = "";
+            for(int i=0; i<pt.Length; i++)
+            {
+                textBox_cubeid.Text += "(" + pt[i].X + ";" + pt[i].Y + ") ";
+            }
+        }
     }
 }

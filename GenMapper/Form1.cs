@@ -48,8 +48,8 @@ namespace GenMapper
             gm.ShowWeb(g, Color.Green, blocks[0], maxsize);
             gm.ShowWeb(g, Color.Red, blocks[1], maxsize);
 
-            gm.Block(g, Color.Blue, blocks[1], xy_block[1]);
-            gm.Block(g, Color.White, blocks[0], xy_block[0]);
+            gm.Block(g, Color.Green, blocks[1], xy_block[1]);
+            gm.Block(g, Color.Red, blocks[0], xy_block[0]);
         }
 
         private void MapBox_MouseMove(object sender, MouseEventArgs e)
@@ -58,9 +58,9 @@ namespace GenMapper
 
             xy_block[0] = gm.GetCubeXY(blocks[0], new Point(e.X, e.Y));
             xy_block[1] = gm.GetCubeXY(blocks[1], new Point(e.X, e.Y));
-            debf.cubeID = "(" + xy_block[0].X + ";" + xy_block[0].Y + ")" + " (" + xy_block[1].X + ";" + xy_block[1].Y + ")";
+            debf.showCoords(xy_block);
 
-            MapBox.Refresh();
+            //MapBox.Refresh();
         }
     }
 }
