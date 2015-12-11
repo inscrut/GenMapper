@@ -32,6 +32,8 @@
             this.textBox_mouse = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_cubeid = new System.Windows.Forms.TextBox();
+            this.label3_info = new System.Windows.Forms.Label();
+            this.textBox_info = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -72,11 +74,33 @@
             this.textBox_cubeid.Size = new System.Drawing.Size(282, 20);
             this.textBox_cubeid.TabIndex = 3;
             // 
+            // label3_info
+            // 
+            this.label3_info.AutoSize = true;
+            this.label3_info.Location = new System.Drawing.Point(9, 113);
+            this.label3_info.Name = "label3_info";
+            this.label3_info.Size = new System.Drawing.Size(25, 13);
+            this.label3_info.TabIndex = 4;
+            this.label3_info.Text = "Info";
+            // 
+            // textBox_info
+            // 
+            this.textBox_info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_info.Location = new System.Drawing.Point(12, 130);
+            this.textBox_info.Multiline = true;
+            this.textBox_info.Name = "textBox_info";
+            this.textBox_info.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox_info.Size = new System.Drawing.Size(282, 146);
+            this.textBox_info.TabIndex = 5;
+            this.textBox_info.WordWrap = false;
+            // 
             // DebInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 288);
+            this.Controls.Add(this.textBox_info);
+            this.Controls.Add(this.label3_info);
             this.Controls.Add(this.textBox_cubeid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox_mouse);
@@ -96,5 +120,7 @@
         private System.Windows.Forms.TextBox textBox_mouse;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_cubeid;
+        private System.Windows.Forms.Label label3_info;
+        private System.Windows.Forms.TextBox textBox_info;
     }
 }

@@ -28,5 +28,18 @@ namespace GenMapper
                 textBox_cubeid.Text += "(" + pt[i].X + ";" + pt[i].Y + ") ";
             }
         }
+        public void showCoords(Point[] pt, string s)
+        {
+            textBox_cubeid.Text = "";
+            for (int i = 0; i < pt.Length; i++)
+            {
+                textBox_cubeid.Text += "(" + pt[i].X + ";" + pt[i].Y + ") ";
+            }
+            textBox_cubeid.Text += s;
+        }
+        public void showLog(string s)
+        {
+            textBox_info.Text += s + "\r\n";
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -14,6 +15,8 @@ namespace GenMapper
 
         Point[] xy_block = { new Point(1, 1), new Point(1, 1) };
         Size[] blocks = { new Size(10, 10), new Size(50, 50) };
+
+        //Stopwatch sw = new Stopwatch();
 
         public Form1()
         {
@@ -75,9 +78,24 @@ namespace GenMapper
         {
             debf.mouseXY = "X: " + e.X + "\r\nY: " + e.Y;
 
+            //sw.Reset();
+            //sw.Start();
+            //xy_block[0] = gm.GetCubeXY(blocks[0], new Point(e.X, e.Y));
+            //xy_block[1] = gm.GetCubeXY(blocks[1], new Point(e.X, e.Y));
+            //sw.Stop();
+            //debf.showCoords(xy_block, "Ticks: " + sw.ElapsedTicks.ToString());
+            //debf.showLog("Ticks: " + sw.ElapsedTicks.ToString());
+
+            //sw.Reset();
+            //sw.Start();
+            //xy_block[0] = gm.GetCubeXY_alt(blocks[0], new Point(e.X, e.Y));
+            //xy_block[1] = gm.GetCubeXY_alt(blocks[1], new Point(e.X, e.Y));
+            //sw.Stop();
+            //debf.showCoords(xy_block, "Ticks: " + sw.ElapsedTicks.ToString());
+            //debf.showLog("Ticks: " + sw.ElapsedTicks.ToString());
+
             xy_block[0] = gm.GetCubeXY(blocks[0], new Point(e.X, e.Y));
             xy_block[1] = gm.GetCubeXY(blocks[1], new Point(e.X, e.Y));
-            debf.showCoords(xy_block);
 
             //MapBox.Refresh();
         }

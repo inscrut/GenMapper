@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace GenMapper
 {
@@ -38,17 +33,34 @@ namespace GenMapper
         }
         public Point GetCubeXY(Size sz_cube, Point t)
         {
-            Point point;
-
             int val_x = 0;
             int val_y = 0;
 
             for (int i = 0; i < t.X; i += sz_cube.Width) val_x++;
             for (int i = 0; i < t.Y; i += sz_cube.Height) val_y++;
 
-            point = new Point(val_x, val_y);
+            return new Point(val_x, val_y);
+        }
+        public Point GetCubeXY_alt(Size sz_cube, Point t)
+        {
+            int val_x = 1;
+            int val_y = 1;
+            
+            while (true)
+            {
+                if(val_x * sz_cube.Width >= t.X)
+                {
+                    if (val_y * sz_cube.Height >= t.Y) break;
+                }
+                else if(val_y * sz_cube.Height >= t.Y)
+                {
+                    if (val_x * sz_cube.Width >= t.X) break;
+                }
+                if (val_x * sz_cube.Width < t.X) val_x++;
+                else if (val_y * sz_cube.Height < t.Y) val_y++;
+            }
 
-            return point;
+            return new Point(val_x, val_y);
         }
     }
 }
