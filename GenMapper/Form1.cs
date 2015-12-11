@@ -29,20 +29,17 @@ namespace GenMapper
         private void button_save_Click(object sender, EventArgs e)
         {
             SaveFileDialog SFD = new SaveFileDialog();
-            SFD.Filter = "JPEG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|BMP files (*.bmp)|*.bmp";
+            SFD.Filter = "BMP files (*.bmp)|*.bmp|PNG files (*.png)|*.png";
 
             if(SFD.ShowDialog() == DialogResult.OK)
             {
                 switch (SFD.FilterIndex)
                 {
                     case 1:
-                        bm.Save(SFD.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        bm.Save(SFD.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
                         break;
                     case 2:
                         bm.Save(SFD.FileName, System.Drawing.Imaging.ImageFormat.Png);
-                        break;
-                    case 3:
-                        bm.Save(SFD.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
                         break;
                     default:
                         break;
